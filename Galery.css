@@ -1,0 +1,268 @@
+/*Home.html*/
+/* Tambahkan ini di bagian paling atas style.css Anda */
+
+html {
+    /* Memaksa scrollbar selalu muncul agar layout tidak geser kiri-kanan */
+    overflow-y: scroll; 
+}
+
+/* Pastikan header memiliki tinggi yang tetap (fixed height) */
+.main-header {
+    height: 140px; /* Sesuaikan dengan tinggi header Anda */
+    /* Jika menggunakan sticky, pastikan z-index tinggi */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Atas */
+.header-top {
+    padding: 20px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.header-top .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 28px;
+    letter-spacing: -1px;
+    color: #333;
+}
+
+.logo span {
+    color: cyan;
+    font-weight: bold;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+}
+
+.search-bar input {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 8px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: cyan;
+}
+
+/* Navigasi */
+.nav-menu {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid darkblue;
+    position: sticky;
+    top: 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-menu ul li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-menu ul li a:hover, 
+.nav-menu ul li a.active {
+    color: cyan;
+    background-color: #f0f0f0;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .header-top .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-menu ul {
+        overflow-x: auto; /* Menu bisa digeser ke samping di HP */
+        white-space: nowrap;
+    }
+}
+
+
+/* Responsif: Di HP, gambar akan pindah ke atas teks */
+@media (max-width: 992px) {
+    .headline-card {
+        flex-direction: column;
+    }
+    .headline-image {
+        height: 250px;
+    }
+}
+
+
+.section-title {
+    font-size: 24px;
+    color: #333;
+    
+    /* 1. Memberi jarak di atas judul */
+    margin-top: 40px; 
+    margin-bottom: 30px;
+
+    /* 2. Mengetengahkan teks */
+    text-align: center;
+
+    /* 3. Penyesuaian aksen garis Cyan */
+    /* Karena teks di tengah, kita pindahkan garisnya ke bawah (border-bottom) */
+    /* agar terlihat lebih seimbang daripada di samping kiri */
+    padding-bottom: 10px;
+    border-bottom: 4px solid #00bcd4;
+    border-left: none; /* Menghilangkan garis samping yang lama */
+    
+    /* Membuat garis bawah tidak selebar layar */
+    display: inline-block; 
+    width: auto;
+}
+
+/* Karena kita pakai display: inline-block agar border-bottom rapi, 
+   kita butuh pembungkusnya (latest-section) untuk bantu ketengahin elemennya */
+.latest-section {
+    text-align: center; 
+}
+
+
+/* Responsif: Jika layar kekecilan (Tablet) jadi 2 kolom, (HP) jadi 1 kolom */
+@media (max-width: 992px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*footer*/
+.main-footer {
+    background-color: #1a1a1a; /* Hitam elegan */
+    color: #fff;
+    padding: 50px 0 20px;
+    margin-top: 50px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Kolom pertama lebih lebar */
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.footer-column h3 span {
+    color: #00bcd4; /* Aksen Cyan */
+}
+
+.footer-column h4 {
+    color: #00bcd4; /* Judul kolom warna Cyan */
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.footer-column p {
+    color: #bbb;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #00bcd4; /* Hover berubah jadi Cyan */
+    padding-left: 5px;
+}
+
+/* Garis bawah footer */
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+}
+
+/* Responsif Footer */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+.galery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 10px;
+  gap: 20px;
+}
+
+.galery li img {
+  justify-content: center;
+  width: 240px;
+  height: 190px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
